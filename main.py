@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import tensorflow as tf
 import numpy as np
 from werkzeug.utils import secure_filename
@@ -6,7 +7,7 @@ import os
 
 # Initialize Flask app
 app = Flask(__name__)
-
+CORS(app)
 # Load the trained model
 model = tf.keras.models.load_model("trained_plant_disease_model.keras")
 
